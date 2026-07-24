@@ -1,0 +1,315 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — Solvia corporate navy, anchored on PANTONE P 108-16 C (#00365f) */
+  --color-brand-50: #f5f7f9;
+  --color-brand-100: #e6ebef;
+  --color-brand-200: #ccd7df;
+  --color-brand-300: #a6b9c7;
+  --color-brand-400: #8ca5b7;
+  --color-brand-500: #597c97;
+  --color-brand-600: #386282;
+  --color-brand-700: #1f4e72;
+  --color-brand-800: #0d4067;
+  --color-brand-900: #00365f;
+
+  /* Neutral palette — cool gray, anchored on brand manual light gray */
+  --color-neutral-50: #f9fafb;
+  --color-neutral-100: #f0f2f5;
+  --color-neutral-200: #e6eaef;
+  --color-neutral-300: #d3d8de;
+  --color-neutral-400: #a5acb6;
+  --color-neutral-500: #7b838e;
+  --color-neutral-600: #535a65;
+  --color-neutral-700: #353b46;
+  --color-neutral-800: #1d222a;
+
+  /* Accent — Solvia teal, anchored on PANTONE P 133-6 C (#17af95), for sparing highlight use only */
+  --color-accent-100: #dcf3ef;
+  --color-accent-300: #aee3da;
+  --color-accent-500: #68cbba;
+  --color-accent-700: #17af95;
+
+  /* Status */
+  --color-status-green: #4e7c55;
+  --color-status-amber: #b8893b;
+  --color-status-red: #b8493d;
+
+  /* WhatsApp */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1da851;
+
+  /* On-brand — text/icon/border color for use on dark brand or whatsapp backgrounds */
+  --color-on-brand: #ffffff;
+
+  /* Typography */
+  --font-sans: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Comfortaa", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Shadows — reuse brand/whatsapp colors instead of hardcoding rgba per component */
+  --shadow-brand-sm: 0 1px 4px rgba(0, 54, 95, 0.25);
+  --shadow-brand-md: 0 2px 8px rgba(0, 54, 95, 0.15);
+  --shadow-brand-md-strong: 0 2px 8px rgba(0, 54, 95, 0.2);
+  --shadow-brand-lg:
+    0 20px 40px -12px rgba(0, 54, 95, 0.12), 0 2px 6px rgba(0, 54, 95, 0.05);
+  --shadow-brand-xl:
+    0 30px 60px -18px rgba(0, 54, 95, 0.35),
+    0 8px 24px rgba(0, 54, 95, 0.12);
+  --shadow-whatsapp:
+    0 12px 28px -8px rgba(29, 168, 81, 0.5), 0 4px 10px rgba(29, 168, 81, 0.25);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  margin: 0;
+  /* Neutral canvas, not a brand color — every section that needs brand-900
+     (hero, navbar, footer) declares its own background. This is what shows
+     through during the page-transition fade in Layout, so it must read as
+     the site's resting tone regardless of which route is entering/exiting. */
+  background: var(--color-neutral-50);
+  color: var(--color-neutral-700);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-brand-300);
+  color: var(--color-brand-900);
+}
+
+/* Range slider — custom styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--color-neutral-200);
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-brand-900);
+  border: 2.5px solid #fff;
+  box-shadow: var(--shadow-brand-sm);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-brand-900);
+  border: 2.5px solid #fff;
+  box-shadow: var(--shadow-brand-sm);
+  cursor: pointer;
+  border: none;
+}
+
+/* Form input focus */
+.solvia-input {
+  transition:
+    border-color 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.solvia-input:focus {
+  border-color: var(--color-brand-600);
+  box-shadow: 0 0 0 3px rgba(56, 98, 130, 0.16);
+  outline: none;
+}
+.solvia-input[aria-invalid="true"] {
+  border-color: var(--color-status-red);
+}
+.solvia-input[aria-invalid="true"]:focus {
+  border-color: var(--color-status-red);
+  box-shadow: 0 0 0 3px rgba(184, 73, 61, 0.16);
+}
+
+/* Chat typing indicator */
+@keyframes chat-typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+.chat-typing-dot {
+  animation: chat-typing-bounce 1.1s ease-in-out infinite;
+}
+
+/* Card hover lift */
+.solvia-card {
+  transition:
+    transform 0.28s var(--ease-out),
+    box-shadow 0.28s var(--ease-out),
+    border-color 0.28s var(--ease-out);
+}
+
+.solvia-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-brand-lg);
+  border-color: var(--color-brand-300);
+}
+
+/* Video modal — native <dialog>, no backdrop wrapper needed */
+.video-modal {
+  padding: 0;
+  border: none;
+  background: transparent;
+  /* Vertical 9:16 video capped at 80vh — width follows that height */
+  max-width: min(45vh, 92vw);
+  width: 100%;
+  margin: auto;
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity 0.28s var(--ease-out),
+    transform 0.28s var(--ease-out),
+    overlay 0.28s var(--ease-out) allow-discrete,
+    display 0.28s var(--ease-out) allow-discrete;
+}
+
+.video-modal[open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@starting-style {
+  .video-modal[open] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.video-modal::backdrop {
+  background: rgba(0, 54, 95, 0);
+  transition:
+    background 0.28s var(--ease-out),
+    overlay 0.28s var(--ease-out) allow-discrete,
+    display 0.28s var(--ease-out) allow-discrete;
+}
+
+.video-modal[open]::backdrop {
+  background: rgba(0, 54, 95, 0.55);
+}
+
+@starting-style {
+  .video-modal[open]::backdrop {
+    background: rgba(0, 54, 95, 0);
+  }
+}
+
+/* Job detail modal — native <dialog>, same open/close mechanism as .video-modal */
+.job-modal {
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: min(560px, 92vw);
+  height: min(600px, 85vh);
+  width: 100%;
+  margin: auto;
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity 0.28s var(--ease-out),
+    transform 0.28s var(--ease-out),
+    overlay 0.28s var(--ease-out) allow-discrete,
+    display 0.28s var(--ease-out) allow-discrete;
+}
+
+.job-modal[open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@starting-style {
+  .job-modal[open] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.job-modal::backdrop {
+  background: rgba(0, 54, 95, 0);
+  transition:
+    background 0.28s var(--ease-out),
+    overlay 0.28s var(--ease-out) allow-discrete,
+    display 0.28s var(--ease-out) allow-discrete;
+}
+
+.job-modal[open]::backdrop {
+  background: rgba(0, 54, 95, 0.55);
+}
+
+@starting-style {
+  .job-modal[open]::backdrop {
+    background: rgba(0, 54, 95, 0);
+  }
+}
+
+/* Testimonial detail modal — native <dialog>, same open/close mechanism as .job-modal */
+.testimonial-modal {
+  padding: 0;
+  border: none;
+  background: transparent;
+  max-width: min(480px, 92vw);
+  max-height: 85vh;
+  width: 100%;
+  margin: auto;
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity 0.28s var(--ease-out),
+    transform 0.28s var(--ease-out),
+    overlay 0.28s var(--ease-out) allow-discrete,
+    display 0.28s var(--ease-out) allow-discrete;
+}
+
+.testimonial-modal[open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@starting-style {
+  .testimonial-modal[open] {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.testimonial-modal::backdrop {
+  background: rgba(0, 54, 95, 0);
+  transition:
+    background 0.28s var(--ease-out),
+    overlay 0.28s var(--ease-out) allow-discrete,
+    display 0.28s var(--ease-out) allow-discrete;
+}
+
+.testimonial-modal[open]::backdrop {
+  background: rgba(0, 54, 95, 0.55);
+}
+
+@starting-style {
+  .testimonial-modal[open]::backdrop {
+    background: rgba(0, 54, 95, 0);
+  }
+}

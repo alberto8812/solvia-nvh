@@ -1,0 +1,54 @@
+{
+  "eyebrow": "Contato",
+  "headline": "Dê o primeiro passo",
+  "headlineItalic": "hoje.",
+  "subtext": "Deixe seus dados e um consultor vai te contatar… Ou fale diretamente pelo WhatsApp. Estamos prontos para te atender.",
+  "phone": "+1 555-988-9513",
+  "telHref": "tel:+15559889513",
+  "waNumber": "+15559889513",
+  "waIntro": "Olá, quero informações sobre um crédito. Meus dados:",
+  "assistantName": "Camila",
+  "assistantRole": "Consultora Solvia",
+  "greeting": "Olá! 👋 Sou a Camila, consultora da Solvia. Te ajudo a montar sua solicitação em menos de um minuto e passo direto para um consultor pelo WhatsApp. Nos ajude respondendo as perguntas a seguir.",
+  "teaser": "Está buscando um crédito rápido? 💬",
+  "questions": [
+    {
+      "id": "nombre",
+      "label": "Seu nome",
+      "type": "text"
+    },
+    {
+      "id": "ciudad",
+      "label": "Em qual cidade e estado você mora?",
+      "type": "text"
+    },
+    {
+      "id": "cp",
+      "label": "Qual é o seu CEP?",
+      "type": "text"
+    },
+    {
+      "id": "trabajoEstable",
+      "label": "Você tem um comércio em funcionamento?",
+      "type": "boolean"
+    },
+    {
+      "id": "trabajo",
+      "label": "Qual é o seu ramo de atividade?",
+      "type": "text"
+    }
+  ],
+  "email": "contato@solviagroup.com.br",
+  "social": {
+    "instagram": "https://www.instagram.com/solvia_brasil/",
+    "facebook": "https://www.facebook.com/solviabrasil"
+  },
+  "cnpj": "62.349.967/0001-30",
+  "bcbNotice": "Instituição regulamentada pelo Banco Central do Brasil (BCB)",
+  "bcbLink": "https://www.bcb.gov.br",
+  "ombudsmanEmail": "gestao@solviagroup.com.br",
+  "sacPhone": "+1 555 879 3836",
+  "privacyPolicyHref": "/legal#privacidade-dados",
+  "termsHref": "/legal",
+  "cetNotice": "Consulte o Custo Efetivo Total (CET) antes de contratar."
+}

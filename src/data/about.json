@@ -1,0 +1,32 @@
+{
+  "eyebrow": "Sobre a Solvia",
+  "headline": "Seu apoio financeiro para o seu comércio crescer",
+  "body": "Somos uma financeira especializada em oferecer crédito para donos de comércio e pequenos empreendedores no Brasil. Oferecemos um processo claro, seguro, transparente e com atendimento personalizado. A Solvia é regulada e supervisionada pelo Banco Central do Brasil (BCB).",
+  "cta": {
+    "label": "Conheça a Solvia →",
+    "href": "#contacto"
+  },
+  "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=70",
+  "values": [
+    {
+      "icon": "shield",
+      "title": "Honestidade",
+      "text": "Comunicação clara e transparente em cada etapa do processo."
+    },
+    {
+      "icon": "handshake",
+      "title": "Confiança",
+      "text": "Seus dados e seu dinheiro estão protegidos em cada operação."
+    },
+    {
+      "icon": "badge",
+      "title": "Responsabilidade",
+      "text": "Assumimos com seriedade o compromisso de oferecer o melhor atendimento."
+    },
+    {
+      "icon": "users",
+      "title": "Inclusão",
+      "text": "Produtos ajustados à necessidade real de cada cliente."
+    }
+  ]
+}

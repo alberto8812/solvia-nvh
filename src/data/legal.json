@@ -1,0 +1,158 @@
+{
+  "eyebrow": "Centro Legal",
+  "title": "Compliance e Regulatório",
+  "subtitle": "Toque em cada documento para lê-lo. Última revisão geral: 4 de setembro de 2025.",
+  "documents": [
+    {
+      "id": "seguranca-informacao",
+      "title": "Política de Segurança da Informação",
+      "updatedAt": "4 de setembro de 2025",
+      "sections": [
+        {
+          "heading": "1. Objetivo",
+          "body": "A presente Política de Segurança da Informação tem como objetivo estabelecer os princípios, diretrizes e controles necessários para garantir a confidencialidade, integridade, disponibilidade e autenticidade das informações tratadas pela Solvia, independentemente do formato (físico, digital, verbal ou eletrônico). A política assegura que todos os processos estejam em conformidade com a ISO/IEC 27001:2022, a Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018), o Marco Civil da Internet (Lei nº 12.965/2014), a Resolução CMN nº 3.954/2011 e demais normas do Banco Central do Brasil (BACEN) aplicáveis a correspondentes bancários, além da Lei nº 9.613/1998 e circulares do COAF relacionadas à Prevenção à Lavagem de Dinheiro e ao Financiamento do Terrorismo (PLDFT)."
+        },
+        {
+          "heading": "2. Escopo",
+          "body": "Esta política aplica-se a todas as operações e ativos de informação da Solvia: informações produzidas, recebidas, armazenadas, processadas e compartilhadas em qualquer meio ou formato; colaboradores, diretores, prestadores de serviços, parceiros de negócios e terceiros com acesso às informações da empresa ou de seus clientes; sistemas, plataformas tecnológicas, bancos de dados, ambientes físicos e documentos em papel que suportam os processos da organização; e dados de clientes, incluindo informações pessoais, sensíveis e financeiras tratadas em atividades de concessão de crédito, gestão de cobranças e operações administrativas. Todo o escopo está sujeito às exigências da LGPD, às normas do BACEN e às obrigações de PLDFT previstas na Lei nº 9.613/1998 e circulares do COAF."
+        },
+        {
+          "heading": "3. Diretrizes — princípios básicos",
+          "body": "A Solvia adota quatro princípios básicos para a proteção da informação: confidencialidade (acesso restrito a pessoas devidamente autorizadas), integridade (informações corretas, completas e protegidas contra alterações indevidas), disponibilidade (acesso seguro sempre que necessário para o negócio) e autenticidade (toda informação verificável quanto à sua origem e autoria)."
+        },
+        {
+          "heading": "4. Diretrizes — medidas de segurança implementadas",
+          "body": "Entre as medidas implementadas estão: controle de acessos com credenciais individuais e privilégios mínimos necessários; gestão de senhas fortes com renovação periódica; autenticação multifator (MFA) obrigatória para acessos administrativos e sistemas críticos; armazenamento seguro em nuvem (AWS EC2 e S3) com criptografia, backups diários e logs de auditoria; proteção física das instalações; firewall, antivírus corporativo e filtros de e-mail contra phishing e malware; classificação da informação por nível de sensibilidade; gestão de incidentes com comunicação ao BACEN/COAF quando exigido; plano de continuidade de negócios com recuperação de desastres; treinamentos periódicos em segurança da informação, LGPD e PLDFT; e termos de confidencialidade assinados por colaboradores, prestadores e parceiros."
+        },
+        {
+          "heading": "5. Responsabilidades",
+          "body": "O Gerente/Administrador provê os recursos e o apoio necessários para a implementação desta política. O Oficial de Compliance / DPO supervisiona a conformidade com a LGPD, o BACEN e demais regulamentações, atende aos titulares de dados e coordena auditorias internas. O Auditor Interno, certificado ISO/IEC 27001:2022, apoia a verificação de conformidade e realiza auditorias independentes. O Administrador de TI implementa, monitora e atualiza os controles técnicos e operacionais de segurança. Colaboradores, prestadores e parceiros devem cumprir integralmente esta política e reportar imediatamente qualquer incidente ou não conformidade."
+        },
+        {
+          "heading": "6. Cumprimento e revisão",
+          "body": "O descumprimento desta política poderá resultar em medidas disciplinares, contratuais, administrativas e legais. Esta política será revisada anualmente ou sempre que houver alterações significativas na legislação, nas regulamentações do BACEN/COAF ou nos riscos identificados para o negócio."
+        }
+      ]
+    },
+    {
+      "id": "cookies",
+      "title": "Política de Cookies",
+      "updatedAt": "4 de setembro de 2025",
+      "sections": [
+        {
+          "heading": "1. Objetivo",
+          "body": "Esta política estabelece os princípios e diretrizes para a coleta, utilização, armazenamento, compartilhamento e gestão de cookies nos sites e plataformas digitais da Solvia, assegurando que o tratamento seja realizado de forma transparente, ética e em conformidade com a LGPD (Lei nº 13.709/2018) e o Marco Civil da Internet (Lei nº 12.965/2014). A política garante que os usuários sejam informados sobre quais cookies são utilizados, para quais finalidades e por quanto tempo permanecem armazenados, além de assegurar seu direito de escolha e de gestão de preferências a qualquer momento."
+        },
+        {
+          "heading": "2. O que são cookies?",
+          "body": "Cookies são pequenos arquivos de texto enviados por sites e armazenados no navegador do usuário durante sua navegação. Eles permitem reconhecer o dispositivo e as preferências do usuário em visitas futuras, auxiliam na funcionalidade e personalização das páginas, possibilitam a análise de uso e desempenho do site e podem ser utilizados para fins estatísticos, de segurança e de marketing. Os cookies não coletam informações pessoais sensíveis automaticamente, mas podem ser classificados como dados pessoais quando permitem identificar direta ou indiretamente um indivíduo, conforme a LGPD."
+        },
+        {
+          "heading": "3. Como utilizamos os cookies",
+          "body": "A Solvia utiliza cookies para garantir funcionalidades essenciais do site, melhorar a experiência do usuário (personalização de conteúdo e manutenção de sessões seguras), otimizar desempenho e usabilidade, analisar o comportamento de navegação e, quando aplicável, ativar recursos de marketing e publicidade, como a exibição de anúncios relevantes e a integração com redes sociais. Todos os cookies são tratados em conformidade com a LGPD e vinculados ao consentimento do usuário, quando aplicável."
+        },
+        {
+          "heading": "4. Tipos de cookies",
+          "body": "Classificamos os cookies utilizados em: estritamente necessários (indispensáveis ao funcionamento do site e que não podem ser desativados); de desempenho ou analíticos (para fins estatísticos, sem identificar diretamente o usuário); funcionais (memorizam escolhas como idioma e preferências de layout); de marketing/publicidade (para anúncios relevantes e personalizados, com base no consentimento); estatísticos (para acompanhar páginas e produtos mais acessados); e cookies de redes sociais (que permitem compartilhar conteúdo e mapear o perfil do usuário em outros sites)."
+        },
+        {
+          "heading": "5. Configurações e preferências de cookies",
+          "body": "Ao acessar o site pela primeira vez, o usuário visualiza um banner de cookies no qual pode aceitar todos, rejeitar os não essenciais ou configurar suas preferências individualmente. O consentimento pode ser modificado ou revogado a qualquer momento pelo banner de cookies ou pelas configurações do navegador utilizado (Chrome, Firefox, Edge ou Safari). A desativação de cookies estritamente necessários pode comprometer o funcionamento do site; a desativação de cookies funcionais, analíticos ou de marketing não impede a navegação, mas pode reduzir a personalização da experiência."
+        },
+        {
+          "heading": "6. Disposições gerais e cumprimento",
+          "body": "Esta política integra o Sistema de Gestão de Segurança da Informação (SGSI) da Solvia e deve ser interpretada em conjunto com a Política de Privacidade de Dados e a Política de Segurança da Informação. O uso dos sites e plataformas digitais da Solvia implica a ciência e concordância com estes termos. Dúvidas sobre o uso de cookies ou o tratamento de dados pessoais podem ser encaminhadas ao Encarregado de Proteção de Dados (DPO) pelo e-mail gestao@solviagroup.com.br. Esta política é revisada no mínimo uma vez por ano, ou sempre que houver alterações relevantes em requisitos legais, tecnológicos ou operacionais, e seu descumprimento pode acarretar sanções disciplinares, contratuais ou legais."
+        }
+      ]
+    },
+    {
+      "id": "seguranca-cibernetica",
+      "title": "Política de Segurança Cibernética",
+      "updatedAt": "4 de setembro de 2025",
+      "sections": [
+        {
+          "heading": "1. Objetivo",
+          "body": "Esta política estabelece princípios, diretrizes e controles para assegurar a confidencialidade, integridade e disponibilidade das informações e transações digitais da Solvia, em conformidade com a LGPD (Lei nº 13.709/2018), a Resolução CMN nº 3.954/2011 e regulamentações do BACEN, o Marco Civil da Internet (Lei nº 12.965/2014), a Lei nº 9.613/1998 e circulares do COAF no âmbito de PLDFT, além das boas práticas internacionais ISO/IEC 27001:2022 e COBIT 2019."
+        },
+        {
+          "heading": "2. Escopo",
+          "body": "Esta política aplica-se a todos os colaboradores, prestadores de serviços e parceiros que utilizam sistemas, redes e dados da Solvia; a todos os ativos tecnológicos — servidores, bancos de dados, redes, plataformas em nuvem, estações de trabalho, dispositivos móveis e canais de comunicação; e a todas as transações financeiras e administrativas realizadas em ambiente digital."
+        },
+        {
+          "heading": "3. Diretrizes",
+          "body": "A Solvia adota controle de acessos com credenciais individuais, segregação de funções e privilégios mínimos necessários; autenticação multifator (MFA) obrigatória para acessos administrativos e sistemas críticos; criptografia e backups diários em servidores AWS (EC2 e S3); logs e rastreabilidade de acessos e transações, com data, hora, usuário e IP; proteção de infraestrutura com firewall corporativo, filtros de e-mail e antivírus atualizado; monitoramento contínuo com detecção de incidentes e alertas automáticos; plano de continuidade e recuperação de desastres; e termos de confidencialidade e cláusulas contratuais de proteção de dados assinados por colaboradores, prestadores e parceiros."
+        },
+        {
+          "heading": "4. Responsabilidades",
+          "body": "O Administrador de TI implementa, monitora e atualiza os controles técnicos de defesa cibernética. O Oficial de Compliance / DPO supervisiona a conformidade com a LGPD e as regulamentações do BACEN/COAF. O Auditor Interno, certificado ISO/IEC 27001:2022, revisa periodicamente a eficácia dos controles e apoia a gestão de incidentes. Todos os colaboradores devem cumprir integralmente esta política e comunicar imediatamente qualquer incidente de segurança."
+        },
+        {
+          "heading": "5. Cumprimento e revisão",
+          "body": "O descumprimento desta política poderá resultar em medidas disciplinares, contratuais e legais. Esta política será revisada anualmente ou sempre que houver alterações legais, regulatórias ou tecnológicas relevantes."
+        }
+      ]
+    },
+    {
+      "id": "privacidade-dados",
+      "title": "Política de Privacidade de Dados",
+      "updatedAt": "4 de setembro de 2025",
+      "sections": [
+        {
+          "heading": "1. Objetivo",
+          "body": "Esta política estabelece princípios, diretrizes e procedimentos para o tratamento de dados pessoais e dados pessoais sensíveis pela Solvia, em qualquer meio (digital, físico, eletrônico ou verbal), assegurando a proteção integral dos direitos dos titulares e a conformidade com a LGPD (Lei nº 13.709/2018), o Marco Civil da Internet (Lei nº 12.965/2014), as resoluções do BACEN, a Lei nº 9.613/1998 e circulares do COAF no contexto de PLDFT, e boas práticas internacionais como a ISO/IEC 27701:2019 e a ISO/IEC 27001:2022. A política assegura que o tratamento seja ético, transparente, proporcional e seguro, incluindo a gestão de decisões automatizadas, os direitos fundamentais de privacidade e a observância das regras de transferência internacional de dados pessoais."
+        },
+        {
+          "heading": "2. Escopo",
+          "body": "Esta política aplica-se a todos os dados pessoais e dados pessoais sensíveis coletados de clientes, colaboradores, diretores, fornecedores, parceiros, visitantes e terceiros; a todas as operações de tratamento — coleta, registro, classificação, armazenamento, uso, compartilhamento, transmissão, retenção, anonimização e eliminação; a todos os colaboradores, prestadores, parceiros e operadores contratados no Brasil ou no exterior com acesso a esses dados; e a todos os sistemas, plataformas e documentos utilizados no tratamento, independentemente do meio ou local de armazenamento, incluindo situações de transferência internacional de dados nos termos do art. 33 da LGPD."
+        },
+        {
+          "heading": "3. Princípios de tratamento de dados",
+          "body": "O tratamento de dados pessoais pela Solvia segue os princípios da LGPD: finalidade (propósitos legítimos e informados ao titular), adequação, necessidade e minimização de dados, livre acesso, transparência, segurança, prevenção, qualidade dos dados, não discriminação, anonimização e pseudonimização sempre que possível, e responsabilização e prestação de contas — incluindo a manutenção de registros de operações de tratamento (ROPA) e auditorias internas."
+        },
+        {
+          "heading": "4. Direitos dos titulares",
+          "body": "A Solvia assegura aos titulares todos os direitos previstos na LGPD: confirmação da existência de tratamento, acesso facilitado e gratuito aos dados, correção de dados incompletos ou desatualizados, anonimização ou eliminação de dados tratados em desconformidade, portabilidade a outro fornecedor, eliminação de dados tratados com base no consentimento, revogação do consentimento a qualquer momento, informação sobre com quem os dados foram compartilhados, oposição a tratamentos irregulares, revisão de decisões automatizadas que afetem seus interesses e o direito de peticionar à ANPD (Autoridade Nacional de Proteção de Dados)."
+        },
+        {
+          "heading": "5. Procedimentos de privacidade",
+          "body": "A Solvia realiza a coleta de dados de forma transparente e mediante consentimento ou outra base legal prevista na LGPD; registra e armazena todos os consentimentos obtidos para fins de auditoria; mantém os dados em servidores seguros na nuvem (AWS EC2 e S3), com criptografia, backups diários e controle de acesso restrito; limita o compartilhamento a parceiros necessários, mediante contratos com cláusulas de proteção de dados; retém e elimina dados apenas pelo período necessário ao cumprimento de obrigações legais, regulatórias ou contratuais; mantém um registro atualizado das operações de tratamento (ROPA); protege os dados com firewall, criptografia, autenticação multifator e antivírus corporativo; e responde a incidentes de segurança comunicando imediatamente o DPO, que avalia a gravidade e, se necessário, notifica a ANPD e os titulares afetados. Solicitações relacionadas a dados pessoais podem ser enviadas ao canal oficial gestao@solviagroup.com.br."
+        },
+        {
+          "heading": "6. Responsabilidades",
+          "body": "O Encarregado de Proteção de Dados (DPO) atua como ponto de contato oficial com os titulares e com a ANPD, atende solicitações relacionadas a dados pessoais e supervisiona a aplicação desta política. Colaboradores e prestadores devem cumprir integralmente esta política e reportar imediatamente qualquer incidente de segurança ou uso inadequado de dados. O Administrador de TI implementa e monitora os controles técnicos de proteção de dados. O Auditor Interno revisa periodicamente a conformidade com a LGPD, e a Direção da Solvia provê os recursos necessários e promove a cultura organizacional de proteção de dados."
+        },
+        {
+          "heading": "7. Cumprimento e revisão",
+          "body": "O cumprimento desta política é obrigatório para todos os colaboradores, prestadores e parceiros com acesso a dados pessoais. O não atendimento poderá resultar em medidas disciplinares, contratuais, administrativas e legais. Esta política será revisada anualmente ou sempre que houver alterações significativas na legislação ou nos processos internos da Solvia, sendo objeto de auditorias internas periódicas conduzidas pela área de Compliance."
+        }
+      ]
+    },
+    {
+      "id": "pldft",
+      "title": "Política de Prevenção à Lavagem de Dinheiro e ao Financiamento do Terrorismo (PLDFT)",
+      "updatedAt": "4 de setembro de 2025",
+      "sections": [
+        {
+          "heading": "1. Objetivo",
+          "body": "Esta política estabelece princípios, diretrizes e procedimentos para prevenir, detectar, mitigar e reportar operações relacionadas à lavagem de dinheiro e ao financiamento do terrorismo (PLDFT), assegurando a integridade das operações da Solvia, a proteção da sua reputação institucional e a confiança de clientes, parceiros e autoridades regulatórias. Aplica-se também às operações de correspondência bancária e serviços de fintech, e está alinhada à Lei nº 9.613/1998, à Circular BACEN nº 3.978/2020, a resoluções e normativos do COAF, à LGPD (Lei nº 13.709/2018) e às recomendações do GAFI/FATF."
+        },
+        {
+          "heading": "2. Escopo",
+          "body": "Esta política aplica-se a todos os colaboradores, diretores, prestadores de serviços, parceiros de negócios, correspondentes, consultores e terceiros envolvidos nas atividades da Solvia; a todas as operações financeiras realizadas pela empresa, incluindo concessão e intermediação de crédito, análise cadastral, onboarding digital, cobranças, pagamentos, transferências via PIX e liquidações; a todos os sistemas, plataformas e instituições financeiras parceiras utilizados no tratamento de dados e monitoramento de transações; e a todos os cadastros, registros e documentos relacionados a PLDFT — independentemente da localização ou do meio utilizado, incluindo parceiros internacionais."
+        },
+        {
+          "heading": "3. Diretrizes de PLDFT",
+          "body": "A Solvia adota identificação e verificação de clientes (KYC), com coleta e validação de documentos oficiais, comprovantes de endereço e dados bancários e de PIX; identificação e verificação de parceiros (KYP), com diligência sobre fornecedores e correspondentes; due diligence reforçada (EDD) para clientes e parceiros de maior risco, incluindo Pessoas Expostas Politicamente (PEPs); atualização cadastral periódica; checagem em listas restritivas nacionais e internacionais (COAF, BACEN, ONU, OFAC, União Europeia); monitoramento contínuo de transações com alertas automáticos de movimentações suspeitas; registro e guarda de informações por no mínimo 5 anos, podendo estender-se a 10 anos conforme regulamentação; e comunicação imediata e sigilosa ao COAF de operações suspeitas, dentro dos prazos legais."
+        },
+        {
+          "heading": "4. Responsabilidades",
+          "body": "O Oficial de Compliance / PLDFT supervisiona a implementação desta política, coordena os procedimentos de KYC, EDD e monitoramento, revisa alertas de transações suspeitas e atua como ponto de contato perante o COAF e o BACEN. O Administrador de TI implementa e monitora os controles tecnológicos de segurança e rastreabilidade. Colaboradores e prestadores devem cumprir integralmente esta política, participar dos treinamentos obrigatórios e reportar imediatamente qualquer indício de operação suspeita. O Auditor Interno revisa periodicamente a conformidade e a eficácia dos controles de PLDFT, e a Direção da Solvia provê os recursos necessários e promove a cultura de integridade em toda a organização."
+        },
+        {
+          "heading": "5. Cumprimento e revisão",
+          "body": "O cumprimento desta política é obrigatório para todos os colaboradores, prestadores, parceiros e áreas da Solvia envolvidos em concessão de crédito, operações financeiras ou suporte tecnológico relacionado a PLDFT. O descumprimento poderá resultar em medidas disciplinares, contratuais, administrativas e legais. Esta política será revisada anualmente ou sempre que houver mudanças relevantes na legislação, nas normas do BACEN/COAF ou nas recomendações do GAFI/FATF, sendo submetida a auditorias internas periódicas e divulgada a todos os colaboradores e prestadores."
+        }
+      ]
+    }
+  ]
+}

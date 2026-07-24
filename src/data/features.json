@@ -1,0 +1,17 @@
+{
+  "heading": "Todo lo que necesitas, en un solo lugar",
+  "features": [
+    {
+      "title": "Transferencias instantáneas",
+      "description": "Envía dinero en segundos a cualquier cuenta, sin horarios ni límites de red."
+    },
+    {
+      "title": "Inversiones inteligentes",
+      "description": "Accede a fondos de inversión con un clic. Sin mínimos, sin papelerío."
+    },
+    {
+      "title": "Control total",
+      "description": "Todos tus movimientos en tiempo real. Alertas, historial y reportes cuando quieras."
+    }
+  ]
+}

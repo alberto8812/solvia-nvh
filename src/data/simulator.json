@@ -1,0 +1,19 @@
+{
+  "monthlyRate": 0.05,
+  "montoMin": 500,
+  "montoMax": 10000,
+  "montoStep": 500,
+  "montoDefault": 2500,
+  "plazoMin": 3,
+  "plazoMax": 36,
+  "plazoStep": 3,
+  "plazoDefault": 12,
+  "quickAmounts": [
+    500,
+    1000,
+    1500,
+    2000
+  ],
+  "rangeSubtext": "Seu primeiro crédito pode ser de R$500 a R$2.000. Com um bom histórico de pagamento, você pode acessar valores maiores nas próximas solicitações.",
+  "waNumber": "15559889513"
+}

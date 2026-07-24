@@ -1,0 +1,9 @@
+{
+  "heading": "La confianza que merecés",
+  "stats": [
+    { "value": "+50.000", "label": "usuarios activos" },
+    { "value": "99,9%", "label": "uptime garantizado" },
+    { "value": "$2.000M", "label": "en activos gestionados" }
+  ],
+  "logos": ["Banco Central", "BCRA Regulado", "ISO 27001", "PCI DSS"]
+}

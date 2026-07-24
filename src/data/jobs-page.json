@@ -1,0 +1,25 @@
+{
+  "whySolvia": [
+    {
+      "icon": "education",
+      "title": "Crescimento profissional",
+      "text": "Capacitação contínua e um caminho claro para crescer dentro da equipe."
+    },
+    {
+      "icon": "shield",
+      "title": "Estabilidade e respaldo",
+      "text": "Uma empresa consolidada, com processos claros e respaldo real por trás de cada função."
+    },
+    {
+      "icon": "handshake",
+      "title": "Impacto real",
+      "text": "Seu trabalho ajuda todos os dias mais pessoas a terem acesso ao crédito que precisam."
+    }
+  ],
+  "expectations": [
+    { "icon": "graph-up", "label": "Atitude comercial" },
+    { "icon": "headset", "label": "Orientação para o serviço" },
+    { "icon": "shirt", "label": "Boa apresentação pessoal" },
+    { "icon": "chat", "label": "Experiência em vendas ou atendimento ao cliente" }
+  ]
+}

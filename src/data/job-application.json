@@ -1,0 +1,15 @@
+{
+  "greeting": "Olá! 👋 Te ajudo a se candidatar. Vou fazer algumas perguntas rápidas e passar tudo direto para um consultor pelo WhatsApp.",
+  "teaser": "Quer se candidatar a uma vaga? 📝",
+  "waIntroTemplate": "Olá, quero me candidatar à vaga de {jobTitle}. Meus dados:",
+  "waIntroGeneric": "Olá, quero me candidatar a uma vaga na Solvia. Meus dados:",
+  "questions": [
+    { "id": "nombre", "label": "Nome completo", "type": "text" },
+    { "id": "telefono", "label": "Número de telefone", "type": "text" },
+    { "id": "autorizacion", "label": "Você possui moto própria?", "type": "boolean" },
+    { "id": "ciudad", "label": "Cidade onde você mora", "type": "text" },
+    { "id": "experiencia", "label": "Você tem experiência ou interesse em trabalhar com vendas do lado de fora do escritório, visitando clientes?", "type": "boolean" },
+    { "id": "educacion", "label": "Nível de educação", "type": "text" },
+    { "id": "email", "label": "Email", "type": "text" }
+  ]
+}

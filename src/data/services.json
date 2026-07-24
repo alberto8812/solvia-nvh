@@ -1,0 +1,22 @@
+[
+  {
+    "ic": "money",
+    "t": "Crédito personal",
+    "d": "Para cubrir gastos urgentes o imprevistos. Montos desde $500 hasta $10,000 USD con plazos flexibles."
+  },
+  {
+    "ic": "briefcase",
+    "t": "Crédito para tu negocio",
+    "d": "Capital de trabajo para impulsar tu emprendimiento. Aprobación rápida y condiciones justas."
+  },
+  {
+    "ic": "home",
+    "t": "Crédito para el hogar",
+    "d": "Mejoras, electrodomésticos o reparaciones del hogar. Sin complicaciones ni fiadores."
+  },
+  {
+    "ic": "education",
+    "t": "Crédito educativo",
+    "d": "Invierte en tu futuro. Financia cursos, certificaciones o estudios con cuotas cómodas."
+  }
+]

@@ -1,0 +1,49 @@
+{
+  "eyebrow": "Cobertura",
+  "headline": "Nossa cobertura",
+  "intro": "A Solvia oferece atendimento personalizado nas seguintes regiões:",
+  "locations": [
+    {
+      "city": "Curitiba",
+      "region": "Paraná"
+    },
+    {
+      "city": "Limeira",
+      "region": "São Paulo"
+    },
+    {
+      "city": "Campinas",
+      "region": "São Paulo"
+    },
+    {
+      "city": "Americana",
+      "region": "São Paulo"
+    },
+    {
+      "city": "Piracicaba",
+      "region": "São Paulo"
+    }
+  ],
+  "requirements": [
+    {
+      "icon": "briefcase",
+      "label": "CNPJ ou MEI"
+    },
+    {
+      "icon": "id-card",
+      "label": "Documento: CNH ou RG e CPF"
+    },
+    {
+      "icon": "home",
+      "label": "Comprovante de endereço residencial e comercial atualizados"
+    },
+    {
+      "icon": "bank",
+      "label": "Comprovante de renda"
+    },
+    {
+      "icon": "smartphone",
+      "label": "Número de celular"
+    }
+  ]
+}

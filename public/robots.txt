@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://solviagroup.com.br/sitemap.xml

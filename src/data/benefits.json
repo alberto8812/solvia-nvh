@@ -1,0 +1,50 @@
+[
+  {
+    "n": "01",
+    "ic": "dollar-sign",
+    "t": "Sem pagamentos antecipados",
+    "d": "Nunca pedimos dinheiro para iniciar sua solicitação ou para analisar seu crédito. Se alguém solicitar um pagamento para liberar seu empréstimo, desconfie: essa prática é ilegal e não faz parte do nosso processo."
+  },
+  {
+    "n": "02",
+    "ic": "briefcase",
+    "t": "Processo sem complicações",
+    "d": "Você só precisa ter um comércio em funcionamento (CNPJ ou MEI), um documento de identificação e uma conta bancária."
+  },
+  {
+    "n": "03",
+    "ic": "handshake",
+    "t": "Atendimento personalizado",
+    "d": "Consultores reais pelo WhatsApp para te acompanhar em toda a solicitação."
+  },
+  {
+    "n": "04",
+    "ic": "users",
+    "t": "Você não precisa de fiador",
+    "d": "Não exigimos coobrigados."
+  },
+  {
+    "n": "05",
+    "ic": "wallet",
+    "t": "Modalidade de pagamento",
+    "d": "Parcelas fixas, adaptadas ao fluxo de caixa do seu negócio."
+  },
+  {
+    "n": "06",
+    "ic": "clock",
+    "t": "Liberação rápida",
+    "d": "O dinheiro cai na conta em até 24 horas."
+  },
+  {
+    "n": "07",
+    "ic": "badge",
+    "t": "Análise ágil",
+    "d": "Avaliamos seu negócio de forma simples, sem exigir garantias complexas."
+  },
+  {
+    "n": "08",
+    "ic": "shield",
+    "t": "Seus dados estão protegidos",
+    "d": "Suas informações são usadas exclusivamente para avaliar sua solicitação e tratadas com segurança, em conformidade com a LGPD."
+  }
+]
