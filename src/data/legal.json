@@ -6,6 +6,7 @@
     {
       "id": "seguranca-informacao",
       "title": "Política de Segurança da Informação",
+      "shortTitle": "Segurança da Informação",
       "updatedAt": "4 de setembro de 2025",
       "sections": [
         {
@@ -37,6 +38,7 @@
     {
       "id": "cookies",
       "title": "Política de Cookies",
+      "shortTitle": "Cookies",
       "updatedAt": "4 de setembro de 2025",
       "sections": [
         {
@@ -68,6 +70,7 @@
     {
       "id": "seguranca-cibernetica",
       "title": "Política de Segurança Cibernética",
+      "shortTitle": "Segurança Cibernética",
       "updatedAt": "4 de setembro de 2025",
       "sections": [
         {
@@ -95,6 +98,7 @@
     {
       "id": "privacidade-dados",
       "title": "Política de Privacidade de Dados",
+      "shortTitle": "Privacidade de Dados",
       "updatedAt": "4 de setembro de 2025",
       "sections": [
         {
@@ -130,6 +134,7 @@
     {
       "id": "pldft",
       "title": "Política de Prevenção à Lavagem de Dinheiro e ao Financiamento do Terrorismo (PLDFT)",
+      "shortTitle": "PLDFT",
       "updatedAt": "4 de setembro de 2025",
       "sections": [
         {

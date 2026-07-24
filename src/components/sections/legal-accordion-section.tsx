@@ -25,6 +25,20 @@ export function LegalAccordionSection() {
   const selectedDoc =
     legal.documents.find((doc) => doc.id === selectedId) ?? legal.documents[0];
 
+  // On mobile the list sits above a tall viewer, so picking a document can
+  // leave its content below the fold with no visible change — bring the
+  // viewer into view on selection there. Desktop keeps list and viewer side
+  // by side (already both in view), so it's skipped to avoid an unwanted
+  // scroll jump on click.
+  const handleSelect = (id: string) => {
+    setSelectedId(id);
+    if (window.innerWidth < 1024) {
+      requestAnimationFrame(() =>
+        panelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
+      );
+    }
+  };
+
   return (
     <section className="bg-neutral-50 border-t border-neutral-200 pt-[calc(70px+56px)] md:pt-[calc(70px+76px)] pb-14 md:pb-[76px]">
       <Container style={{ maxWidth: "980px" }}>
@@ -53,15 +67,49 @@ export function LegalAccordionSection() {
           className="mt-10 lg:grid lg:grid-cols-[280px_1fr] lg:items-start gap-3 lg:gap-6"
           style={{ scrollMarginTop: "100px" }}
         >
-          {/* Document index — quiet navigation, never changes height */}
-          <nav aria-label="Documentos" className="flex flex-col gap-1.5">
+          {/* Mobile/tablet — compact horizontal chip selector, sitting
+              directly above the viewer so switching documents and seeing
+              the result happen in the same glance, no scrolling required. */}
+          <nav
+            aria-label="Documentos"
+            className="lg:hidden flex gap-2 overflow-x-auto pb-1 -mx-5 px-5 sm:-mx-8 sm:px-8 md:-mx-12 md:px-12"
+            style={{ scrollSnapType: "x proximity" }}
+          >
             {legal.documents.map((doc) => {
               const selected = doc.id === selectedDoc.id;
               return (
                 <button
                   key={doc.id}
                   type="button"
-                  onClick={() => setSelectedId(doc.id)}
+                  onClick={() => handleSelect(doc.id)}
+                  aria-current={selected}
+                  className="shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[13px] font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+                  style={{
+                    scrollSnapAlign: "start",
+                    background: selected ? "var(--color-brand-900)" : "#ffffff",
+                    color: selected ? "#ffffff" : "var(--color-neutral-600)",
+                    border: `1px solid ${
+                      selected ? "var(--color-brand-900)" : "var(--color-neutral-200)"
+                    }`,
+                    boxShadow: selected ? "var(--shadow-brand-sm)" : "none",
+                  }}
+                >
+                  {doc.shortTitle ?? doc.title}
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* Desktop — full document index, quiet navigation beside the
+              viewer, never changes height. */}
+          <nav aria-label="Documentos" className="hidden lg:flex lg:flex-col gap-1.5">
+            {legal.documents.map((doc) => {
+              const selected = doc.id === selectedDoc.id;
+              return (
+                <button
+                  key={doc.id}
+                  type="button"
+                  onClick={() => handleSelect(doc.id)}
                   aria-current={selected}
                   className="flex items-center gap-3 text-left pl-3.5 pr-3 py-3 rounded-[10px] border-l-[3px] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
                   style={{
