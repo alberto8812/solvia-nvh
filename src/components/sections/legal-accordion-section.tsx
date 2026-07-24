@@ -1,30 +1,34 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { legal } from "@/data";
-import { staggerContainer, staggerItem } from "@/components/motion";
 import { Container } from "@/components/ui";
 
-const VP = { once: true, amount: 0.2 } as const;
+const CONTENT_EASE = [0.2, 0.8, 0.2, 1] as const;
 
 export function LegalAccordionSection() {
   const { hash } = useLocation();
-  const [openId, setOpenId] = useState<string | null>(null);
-  const cardRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const [selectedId, setSelectedId] = useState(legal.documents[0].id);
+  const panelRef = useRef<HTMLDivElement | null>(null);
 
-  // Deep-link from the footer (e.g. /legal#termos): open the matching
-  // document and scroll it into view once its ref is mounted.
+  // Deep-link from the footer (e.g. /legal#pldft): select the matching
+  // document and bring the fixed-size viewer into view — the viewer itself
+  // never changes height, so this never causes the page-jump the accordion
+  // version had.
   useEffect(() => {
     const id = hash.replace("#", "");
     if (!id || !legal.documents.some((doc) => doc.id === id)) return;
-    setOpenId(id);
-    cardRefs.current[id]?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setSelectedId(id);
+    panelRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [hash]);
+
+  const selectedDoc =
+    legal.documents.find((doc) => doc.id === selectedId) ?? legal.documents[0];
 
   return (
     <section className="bg-neutral-50 border-t border-neutral-200 pt-[calc(70px+56px)] md:pt-[calc(70px+76px)] pb-14 md:pb-[76px]">
-      <Container style={{ maxWidth: "760px" }}>
-        <div className="text-center">
+      <Container style={{ maxWidth: "980px" }}>
+        <div className="text-center mx-auto" style={{ maxWidth: "640px" }}>
           <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400">
             {legal.eyebrow}
           </div>
@@ -44,91 +48,107 @@ export function LegalAccordionSection() {
           </p>
         </div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VP}
-          className="mt-10 flex flex-col gap-3"
+        <div
+          ref={panelRef}
+          className="mt-10 lg:grid lg:grid-cols-[280px_1fr] lg:items-start gap-3 lg:gap-6"
+          style={{ scrollMarginTop: "100px" }}
         >
-          {legal.documents.map((doc) => {
-            const open = openId === doc.id;
-            const panelId = `legal-panel-${doc.id}`;
-            const buttonId = `legal-trigger-${doc.id}`;
-            return (
-              <motion.div
-                key={doc.id}
-                ref={(el) => {
-                  cardRefs.current[doc.id] = el;
-                }}
-                variants={staggerItem}
-                className="solvia-card bg-white border border-neutral-200 overflow-hidden"
-                style={{ borderRadius: "10px", scrollMarginTop: "100px" }}
-              >
+          {/* Document index — quiet navigation, never changes height */}
+          <nav aria-label="Documentos" className="flex flex-col gap-1.5">
+            {legal.documents.map((doc) => {
+              const selected = doc.id === selectedDoc.id;
+              return (
                 <button
-                  id={buttonId}
+                  key={doc.id}
                   type="button"
-                  onClick={() => setOpenId(open ? null : doc.id)}
-                  aria-expanded={open}
-                  aria-controls={panelId}
-                  className="flex w-full items-center gap-4 px-6 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+                  onClick={() => setSelectedId(doc.id)}
+                  aria-current={selected}
+                  className="flex items-center gap-3 text-left pl-3.5 pr-3 py-3 rounded-[10px] border-l-[3px] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+                  style={{
+                    borderLeftColor: selected
+                      ? "var(--color-accent-700)"
+                      : "transparent",
+                    background: selected ? "#ffffff" : "transparent",
+                    boxShadow: selected ? "var(--shadow-brand-sm)" : "none",
+                  }}
                 >
-                  <div className="flex-1">
-                    <div className="font-sans font-semibold text-[16px] text-brand-900">
+                  <div className="flex-1 min-w-0">
+                    <div
+                      className={`font-sans text-[13.5px] leading-snug ${
+                        selected
+                          ? "font-semibold text-brand-900"
+                          : "font-medium text-neutral-600"
+                      }`}
+                    >
                       {doc.title}
                     </div>
-                    <div className="mt-1 text-[13px] text-neutral-400">
+                    <div className="mt-0.5 text-[11.5px] text-neutral-400">
                       Atualizado: {doc.updatedAt}
                     </div>
                   </div>
                   <svg
-                    width="16"
-                    height="16"
+                    width="14"
+                    height="14"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="shrink-0 text-neutral-400 transition-transform duration-300"
+                    className="shrink-0 transition-opacity duration-200"
                     style={{
-                      transform: open ? "rotate(180deg)" : "rotate(0deg)",
-                      transitionTimingFunction: "var(--ease-out)",
+                      color: "var(--color-accent-700)",
+                      opacity: selected ? 1 : 0,
                     }}
                   >
-                    <polyline points="6 9 12 15 18 9" />
+                    <polyline points="9 18 15 12 9 6" />
                   </svg>
                 </button>
+              );
+            })}
+          </nav>
 
-                <div
-                  id={panelId}
-                  role="region"
-                  aria-labelledby={buttonId}
-                  className="grid transition-[grid-template-rows] duration-300"
-                  style={{
-                    gridTemplateRows: open ? "1fr" : "0fr",
-                    transitionTimingFunction: "var(--ease-out)",
-                  }}
+          {/* Fixed-size viewer — height never changes when switching
+              documents; long content scrolls inside instead of pushing
+              the page layout around. */}
+          <div
+            className="mt-3 lg:mt-0 flex flex-col bg-white border border-neutral-200 overflow-hidden h-[440px] md:h-[500px] lg:h-[600px]"
+            style={{ borderRadius: "14px", boxShadow: "var(--shadow-brand-sm)" }}
+          >
+            <div className="shrink-0 px-6 md:px-7 py-5 border-b border-neutral-100">
+              <div className="font-sans font-semibold text-[16px] text-brand-900">
+                {selectedDoc.title}
+              </div>
+              <div className="mt-1 text-[12.5px] text-neutral-400">
+                Atualizado: {selectedDoc.updatedAt}
+              </div>
+            </div>
+
+            <div className="legal-scroll flex-1 min-h-0 overflow-y-auto px-6 md:px-7 py-6">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedDoc.id}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.18, ease: CONTENT_EASE }}
+                  className="flex flex-col gap-5"
                 >
-                  <div className="overflow-hidden min-h-0">
-                    <div className="flex flex-col gap-5 px-6 pb-6 pt-1 border-t border-neutral-100">
-                      {doc.sections.map((section) => (
-                        <div key={section.heading}>
-                          <h2 className="font-sans font-semibold text-[14.5px] text-brand-900">
-                            {section.heading}
-                          </h2>
-                          <p className="mt-1.5 text-[14.5px] leading-[1.6] text-neutral-600">
-                            {section.body}
-                          </p>
-                        </div>
-                      ))}
+                  {selectedDoc.sections.map((section) => (
+                    <div key={section.heading}>
+                      <h2 className="font-sans font-semibold text-[14.5px] text-brand-900">
+                        {section.heading}
+                      </h2>
+                      <p className="mt-1.5 text-[14.5px] leading-[1.6] text-neutral-600">
+                        {section.body}
+                      </p>
                     </div>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
       </Container>
     </section>
   );

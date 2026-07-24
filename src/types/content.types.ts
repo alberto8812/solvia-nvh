@@ -123,6 +123,7 @@ export interface LegalSection {
 export interface LegalDocument {
   id: string
   title: string
+  shortTitle?: string
   updatedAt: string
   sections: LegalSection[]
 }
