@@ -10,6 +10,8 @@ export function LegalAccordionSection() {
   const { hash } = useLocation();
   const [selectedId, setSelectedId] = useState(legal.documents[0].id);
   const panelRef = useRef<HTMLDivElement | null>(null);
+  const chipNavRef = useRef<HTMLDivElement | null>(null);
+  const [chipScroll, setChipScroll] = useState({ atStart: true, atEnd: false });
 
   // Deep-link from the footer (e.g. /legal#pldft): select the matching
   // document and bring the fixed-size viewer into view — the viewer itself
@@ -24,6 +26,24 @@ export function LegalAccordionSection() {
 
   const selectedDoc =
     legal.documents.find((doc) => doc.id === selectedId) ?? legal.documents[0];
+
+  // The chip row has no native scrollbar (hidden for a cleaner mobile look),
+  // so the only way a user knows there are more categories off-screen is an
+  // edge fade + arrow driven off actual scroll position.
+  const updateChipScroll = () => {
+    const el = chipNavRef.current;
+    if (!el) return;
+    setChipScroll({
+      atStart: el.scrollLeft <= 1,
+      atEnd: el.scrollLeft + el.clientWidth >= el.scrollWidth - 1,
+    });
+  };
+
+  useEffect(() => {
+    updateChipScroll();
+    window.addEventListener("resize", updateChipScroll);
+    return () => window.removeEventListener("resize", updateChipScroll);
+  }, []);
 
   // On mobile the list sits above a tall viewer, so picking a document can
   // leave its content below the fold with no visible change — bring the
@@ -67,13 +87,30 @@ export function LegalAccordionSection() {
           className="mt-10 lg:grid lg:grid-cols-[280px_1fr] lg:items-start gap-3 lg:gap-6"
           style={{ scrollMarginTop: "100px" }}
         >
-          {/* Mobile/tablet — compact horizontal chip selector, sitting
-              directly above the viewer so switching documents and seeing
-              the result happen in the same glance, no scrolling required. */}
+          {/* Mobile/tablet — compact horizontal chip selector, kept inside
+              the page's own margin (never bleeds to the screen edge) so it
+              reads as a contained control, not a stray full-width strip.
+              The last chip is intentionally left partially cut off, and a
+              mask dissolves it to nothing rather than covering it with an
+              opaque fade — that avoided a glossy "mirror" sheen crossing
+              the dark selected pill, which read as unpolished. */}
           <nav
+            ref={chipNavRef}
+            onScroll={updateChipScroll}
             aria-label="Documentos"
-            className="lg:hidden flex gap-2 overflow-x-auto pb-1 -mx-5 px-5 sm:-mx-8 sm:px-8 md:-mx-12 md:px-12"
-            style={{ scrollSnapType: "x proximity" }}
+            className="legal-chip-scroll lg:hidden flex gap-2 overflow-x-auto pb-1"
+            style={{
+              WebkitMaskImage: `linear-gradient(to right, ${
+                chipScroll.atStart ? "black" : "transparent"
+              } 0, black 16px, black calc(100% - 16px), ${
+                chipScroll.atEnd ? "black" : "transparent"
+              } 100%)`,
+              maskImage: `linear-gradient(to right, ${
+                chipScroll.atStart ? "black" : "transparent"
+              } 0, black 16px, black calc(100% - 16px), ${
+                chipScroll.atEnd ? "black" : "transparent"
+              } 100%)`,
+            }}
           >
             {legal.documents.map((doc) => {
               const selected = doc.id === selectedDoc.id;
@@ -85,7 +122,6 @@ export function LegalAccordionSection() {
                   aria-current={selected}
                   className="shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[13px] font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
                   style={{
-                    scrollSnapAlign: "start",
                     background: selected ? "var(--color-brand-900)" : "#ffffff",
                     color: selected ? "#ffffff" : "var(--color-neutral-600)",
                     border: `1px solid ${

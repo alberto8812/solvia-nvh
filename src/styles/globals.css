@@ -178,6 +178,15 @@ input[type="range"]::-moz-range-thumb {
   background-color: var(--color-neutral-400);
 }
 
+/* Legal chip selector — scroll cue is the edge fade + arrow rendered
+   alongside it, so the native scrollbar is hidden to keep the row clean. */
+.legal-chip-scroll {
+  scrollbar-width: none;
+}
+.legal-chip-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* Card hover lift */
 .solvia-card {
   transition:
