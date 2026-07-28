@@ -7,9 +7,9 @@ import { Button, Container } from "@/components/ui";
 import { openSolviaChat } from "@/lib/chat-bridge";
 
 function fmt(n: number): string {
-  return new Intl.NumberFormat("es-US", {
+  return new Intl.NumberFormat("pt-BR", {
     style: "currency",
-    currency: "USD",
+    currency: "BRL",
     maximumFractionDigits: 0,
   }).format(n);
 }
@@ -44,7 +44,7 @@ export function AmountSelectorSection() {
           viewport={VP}
         >
           <div className="font-mono text-xs tracking-[.14em] uppercase text-brand-300">
-            Montos disponibles
+            Valores disponíveis
           </div>
           <h2
             className="font-sans font-semibold mt-[14px] mb-4 text-on-brand"
@@ -55,9 +55,9 @@ export function AmountSelectorSection() {
               textWrap: "balance",
             }}
           >
-            Elige el monto{" "}
+            Escolha o valor{" "}
             <span className="font-serif italic font-medium">
-              que te gustaría solicitar.
+              que você gostaria de solicitar.
             </span>
           </h2>
           <p
@@ -85,7 +85,7 @@ export function AmountSelectorSection() {
             <div>
               <div className="flex items-center gap-3 flex-wrap">
                 <span className="text-sm font-medium text-neutral-600 shrink-0">
-                  Monto
+                  Valor
                 </span>
                 <div className="flex gap-2 flex-wrap">
                   {simulator.quickAmounts.map((amt) => (
@@ -104,14 +104,15 @@ export function AmountSelectorSection() {
                 </div>
               </div>
               <p className="text-[13px] leading-[1.6] mt-4 text-neutral-500">
-                ¿Necesitas otro monto? Cuéntanos por WhatsApp y te asesoramos.
+                Precisa de outro valor? Fale com a gente pelo WhatsApp e te
+                orientamos.
               </p>
             </div>
 
             {/* Right: confirmation + CTA */}
             <div className="flex flex-col justify-center rounded-[10px] px-6 py-8 bg-brand-50 border border-accent-500/50">
               <div className="text-[13px] tracking-[.04em] text-brand-600">
-                Monto seleccionado
+                Valor selecionado
               </div>
               <AnimatedCounter
                 value={monto}
@@ -129,7 +130,7 @@ export function AmountSelectorSection() {
                 onClick={() => openSolviaChat({ monto: fmt(monto) })}
                 className="mt-[18px] justify-center w-full"
               >
-                Solicitar por WhatsApp
+                Solicitar pelo WhatsApp
               </Button>
             </div>
           </div>

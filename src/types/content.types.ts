@@ -21,15 +21,12 @@ export interface Benefit {
 }
 
 export interface SimulatorConfig {
-  monthlyRate: number
+  interestRate: number
+  plazoDias: number
   montoMin: number
   montoMax: number
   montoStep: number
   montoDefault: number
-  plazoMin: number
-  plazoMax: number
-  plazoStep: number
-  plazoDefault: number
   quickAmounts: number[]
   rangeSubtext: string
   waNumber: string

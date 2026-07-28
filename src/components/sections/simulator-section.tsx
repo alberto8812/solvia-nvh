@@ -6,20 +6,15 @@ import { slideInLeft, EASE } from '@/components/motion'
 import { Button, Container } from '@/components/ui'
 
 function fmt(n: number): string {
-  return new Intl.NumberFormat('es-US', {
+  return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'BRL',
     maximumFractionDigits: 0,
   }).format(n)
 }
 
-function fmtPlazo(n: number): string {
-  return `${n} meses`
-}
-
-function calcCuota(principal: number, months: number, rate: number): number {
-  if (!rate || rate <= 0) return principal / months
-  return (principal * rate) / (1 - Math.pow(1 + rate, -months))
+function calcCuotaDiaria(principal: number, plazoDias: number, rate: number): number {
+  return (principal * rate) / plazoDias
 }
 
 // Layout-aware variant: keeps y:56 in both states so the offset isn't disturbed
@@ -32,9 +27,8 @@ const VP = { once: true, amount: 0.2 } as const
 
 export function SimulatorSection() {
   const [monto, setMonto] = useState(simulator.montoDefault)
-  const [plazo, setPlazo] = useState(simulator.plazoDefault)
-  const rate = simulator.monthlyRate
-  const cuota = calcCuota(monto, plazo, rate)
+  const plazo = simulator.plazoDias
+  const cuota = calcCuotaDiaria(monto, plazo, simulator.interestRate)
   const total = cuota * plazo
 
   return (
@@ -58,10 +52,10 @@ export function SimulatorSection() {
           className="font-sans font-semibold mt-[14px] mb-4 text-on-brand"
           style={{ fontSize: 'clamp(26px, 6vw, 34px)', letterSpacing: '-0.02em', lineHeight: 1.12, textWrap: 'balance' }}
         >
-          Calcula tu crédito <span className="font-serif italic font-medium">en segundos.</span>
+          Calcule seu crédito <span className="font-serif italic font-medium">em segundos.</span>
         </h2>
         <p className="text-base leading-[1.6] m-0 text-brand-200" style={{ maxWidth: '440px' }}>
-          Mueve los controles para ver tu cuota estimada. Sin compromiso.
+          Mova o controle para ver sua parcela diária estimada. Sem compromisso.
         </p>
       </motion.div>
 
@@ -82,9 +76,9 @@ export function SimulatorSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left: sliders */}
           <div>
-            {/* Monto */}
+            {/* Valor */}
             <div className="flex justify-between items-baseline">
-              <span className="text-sm font-medium text-neutral-600">Monto</span>
+              <span className="text-sm font-medium text-neutral-600">Valor</span>
               <AnimatedCounter
                 value={monto}
                 format={fmt}
@@ -120,27 +114,12 @@ export function SimulatorSection() {
               ))}
             </div>
 
-            {/* Plazo */}
+            {/* Prazo — fixo, produto único por enquanto */}
             <div className="flex justify-between items-baseline mt-[22px]">
-              <span className="text-sm font-medium text-neutral-600">Plazo</span>
-              <AnimatedCounter
-                value={plazo}
-                format={fmtPlazo}
-                className="font-mono text-lg font-medium text-brand-900"
-              />
-            </div>
-            <input
-              type="range"
-              min={simulator.plazoMin}
-              max={simulator.plazoMax}
-              step={simulator.plazoStep}
-              value={plazo}
-              onChange={(e) => setPlazo(Number(e.target.value))}
-              style={{ margin: '14px 0 4px' }}
-            />
-            <div className="flex justify-between text-[11px] font-mono text-neutral-400">
-              <span>3 m</span>
-              <span>36 m</span>
+              <span className="text-sm font-medium text-neutral-600">Prazo</span>
+              <span className="font-mono text-lg font-medium text-brand-900">
+                {plazo} dias
+              </span>
             </div>
           </div>
 
@@ -149,7 +128,7 @@ export function SimulatorSection() {
             className="flex flex-col justify-center rounded-[10px] px-6 py-8 bg-brand-50 border border-accent-500/50"
           >
             <div className="text-[13px] tracking-[.04em] text-brand-600">
-              Cuota mensual estimada
+              Parcela diária estimada
             </div>
             <AnimatedCounter
               value={cuota}
@@ -158,10 +137,8 @@ export function SimulatorSection() {
               style={{ fontSize: 'clamp(32px, 8vw, 44px)', lineHeight: 1.02, fontVariantNumeric: 'tabular-nums' }}
             />
             <div className="text-xs mt-2 text-neutral-500">
-              Total:{' '}
+              Total a pagar:{' '}
               <AnimatedCounter value={total} format={fmt} style={{ fontVariantNumeric: 'tabular-nums' }} />
-              <br />
-              Tasa ejemplo {(rate * 100).toFixed(0)}%/mes
             </div>
             <Button
               variant="whatsapp"
@@ -170,7 +147,7 @@ export function SimulatorSection() {
               rel="noopener noreferrer"
               className="mt-[18px] justify-center w-full"
             >
-              Solicitar por WhatsApp
+              Solicitar pelo WhatsApp
             </Button>
           </div>
         </div>
