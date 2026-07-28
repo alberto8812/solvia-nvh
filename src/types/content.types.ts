@@ -153,7 +153,5 @@ export interface ContactContent {
   bcbLink?: string
   ombudsmanEmail?: string
   sacPhone?: string
-  privacyPolicyHref?: string
-  termsHref?: string
   cetNotice?: string
 }

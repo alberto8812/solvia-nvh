@@ -1,10 +1,20 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { contact, coverage } from "@/data";
 import { Icon } from "@/components/ui/icon";
 import { Container } from "@/components/ui";
+import { ComplianceModal } from "@/components/compliance-modal";
+
+const FOOTER_LEGAL_LINKS = [
+  { label: "Política de Privacidade", docId: "privacidade-dados" },
+  { label: "Compliance e Regulatório", docId: "seguranca-informacao" },
+  { label: "Cookies", docId: "cookies" },
+  { label: "Segurança Cibernética", docId: "seguranca-cibernetica" },
+  { label: "PLDFT", docId: "pldft" },
+];
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const [openDocId, setOpenDocId] = useState<string | null>(null);
   return (
     <footer
       className="bg-brand-900 text-brand-300"
@@ -136,22 +146,16 @@ export function Footer() {
                 )}
               </div>
               <div className="flex gap-3 flex-wrap text-[13px] pt-1">
-                {contact.privacyPolicyHref && (
-                  <Link
-                    to={contact.privacyPolicyHref}
-                    className="no-underline hover:text-on-brand transition-colors text-brand-500"
+                {FOOTER_LEGAL_LINKS.map(({ label, docId }) => (
+                  <button
+                    key={docId}
+                    type="button"
+                    onClick={() => setOpenDocId(docId)}
+                    className="bg-transparent border-0 p-0 cursor-pointer no-underline hover:text-on-brand transition-colors text-brand-500"
                   >
-                    Política de Privacidade
-                  </Link>
-                )}
-                {contact.termsHref && (
-                  <Link
-                    to={contact.termsHref}
-                    className="no-underline hover:text-on-brand transition-colors text-brand-500"
-                  >
-                    Compliance e Regulatório
-                  </Link>
-                )}
+                    {label}
+                  </button>
+                ))}
               </div>
               {contact.cetNotice && (
                 <span className="text-[12.5px] text-brand-600 leading-snug">
@@ -168,6 +172,8 @@ export function Footer() {
         <span>© {year} Solvia · Todos os direitos reservados</span>
         <span>Créditos sujeitos a avaliação</span>
       </Container>
+
+      <ComplianceModal documentId={openDocId} onClose={() => setOpenDocId(null)} />
     </footer>
   );
 }

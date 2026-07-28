@@ -13,7 +13,6 @@ const NAV_LINKS = [
   { label: "Montos", href: "/#montos" },
   { label: "Nosotros", href: "/#nosotros" },
   { label: "Trabalhe conosco", href: "/careers" },
-  { label: "Compliance e Regulatório", href: "/legal" },
 ] as const;
 
 export function Navbar() {

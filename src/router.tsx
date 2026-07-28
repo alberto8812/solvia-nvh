@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "@/components/layout";
-import { HomePage, JobsPage, LegalPage } from "@/pages";
+import { HomePage, JobsPage } from "@/pages";
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +9,6 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "careers", element: <JobsPage /> },
-      { path: "legal", element: <LegalPage /> },
     ],
   },
 ]);
