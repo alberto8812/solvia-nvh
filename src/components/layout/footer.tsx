@@ -34,8 +34,8 @@ export function Footer() {
               className="h-15 w-auto object-contain"
             />
             <p className="font-serif italic text-[19px] mt-[18px] max-w-[340px] leading-[1.45] text-brand-200">
-              Estamos disponíveis para te apoiar quando você mais precisar.
-              Te convidamos a nos seguir nas redes sociais:
+              Estamos disponíveis para te apoiar quando você mais precisar. Te
+              convidamos a nos seguir nas redes sociais:
             </p>
             <div className="flex gap-3 mt-5">
               <a
@@ -88,11 +88,19 @@ export function Footer() {
                 href={contact.telHref}
                 className="flex items-center gap-2 no-underline hover:text-on-brand transition-colors text-brand-200"
               >
-                <Icon name="phone" size={14} className="shrink-0 text-brand-500" />
+                <Icon
+                  name="phone"
+                  size={14}
+                  className="shrink-0 text-brand-500"
+                />
                 {contact.phone}
               </a>
               <span className="flex items-center gap-2">
-                <Icon name="mail" size={14} className="shrink-0 text-brand-500" />
+                <Icon
+                  name="mail"
+                  size={14}
+                  className="shrink-0 text-brand-500"
+                />
                 {contact.email}
               </span>
               <a
@@ -101,9 +109,33 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 no-underline hover:text-on-brand transition-colors text-brand-200"
               >
-                <Icon name="chat" size={14} className="shrink-0 text-brand-500" />
+                <Icon
+                  name="chat"
+                  size={14}
+                  className="shrink-0 text-brand-500"
+                />
                 WhatsApp →
               </a>
+            </div>
+            <div className="flex flex-col gap-2 text-[13.5px]">
+              {contact.cnpj && (
+                <div className="flex gap-1.5">
+                  <span className="text-brand-600">CNPJ:</span>
+                  <span className="tabular-nums">{contact.cnpj}</span>
+                </div>
+              )}
+              {contact.ombudsmanEmail && (
+                <div className="flex gap-1.5">
+                  <span className="text-brand-600">Ouvidoria:</span>
+                  <span>{contact.ombudsmanEmail}</span>
+                </div>
+              )}
+              {contact.sacPhone && (
+                <div className="flex gap-1.5">
+                  <span className="text-brand-600">SAC:</span>
+                  <span className="tabular-nums">{contact.sacPhone}</span>
+                </div>
+              )}
             </div>
           </div>
 
@@ -111,7 +143,7 @@ export function Footer() {
               other columns, not demoted to bottom-of-page fine print. */}
           <div>
             <div className="font-mono text-[11.5px] tracking-[.14em] uppercase mb-4 text-brand-500">
-              Institucional
+              Legal
             </div>
             <div className="flex flex-col gap-3 text-[14.5px] text-brand-200">
               {contact.bcbNotice && contact.bcbLink && (
@@ -125,26 +157,6 @@ export function Footer() {
                   {contact.bcbNotice}
                 </a>
               )}
-              <div className="flex flex-col gap-2 text-[13.5px]">
-                {contact.cnpj && (
-                  <div className="flex gap-1.5">
-                    <span className="text-brand-600">CNPJ:</span>
-                    <span className="tabular-nums">{contact.cnpj}</span>
-                  </div>
-                )}
-                {contact.ombudsmanEmail && (
-                  <div className="flex gap-1.5">
-                    <span className="text-brand-600">Ouvidoria:</span>
-                    <span>{contact.ombudsmanEmail}</span>
-                  </div>
-                )}
-                {contact.sacPhone && (
-                  <div className="flex gap-1.5">
-                    <span className="text-brand-600">SAC:</span>
-                    <span className="tabular-nums">{contact.sacPhone}</span>
-                  </div>
-                )}
-              </div>
               <div className="flex gap-3 flex-wrap text-[13px] pt-1">
                 {FOOTER_LEGAL_LINKS.map(({ label, docId }) => (
                   <button
@@ -173,7 +185,10 @@ export function Footer() {
         <span>Créditos sujeitos a avaliação</span>
       </Container>
 
-      <ComplianceModal documentId={openDocId} onClose={() => setOpenDocId(null)} />
+      <ComplianceModal
+        documentId={openDocId}
+        onClose={() => setOpenDocId(null)}
+      />
     </footer>
   );
 }
