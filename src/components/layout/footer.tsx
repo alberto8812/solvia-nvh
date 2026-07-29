@@ -117,7 +117,7 @@ export function Footer() {
                 WhatsApp →
               </a>
             </div>
-            <div className="flex flex-col gap-2 text-[13.5px]">
+            <div className="flex flex-col gap-2 text-[13.5px] pt-1.5">
               {contact.cnpj && (
                 <div className="flex gap-1.5">
                   <span className="text-brand-600">CNPJ:</span>
