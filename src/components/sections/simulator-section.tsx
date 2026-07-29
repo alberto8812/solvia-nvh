@@ -4,6 +4,7 @@ import { simulator } from "@/data";
 import { AnimatedCounter } from "@/components/motion";
 import { slideInLeft, EASE } from "@/components/motion";
 import { Button, Container } from "@/components/ui";
+import { openSolviaChat } from "@/lib/chat-bridge";
 
 function fmt(n: number): string {
   return new Intl.NumberFormat("pt-BR", {
@@ -173,9 +174,9 @@ export function SimulatorSection() {
               </div>
               <Button
                 variant="whatsapp"
-                href={`https://wa.me/${simulator.waNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() =>
+                  openSolviaChat({ monto: fmt(monto), plazoDias: plazo })
+                }
                 className="mt-[18px] justify-center w-full"
               >
                 Solicitar pelo WhatsApp

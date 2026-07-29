@@ -87,6 +87,7 @@ interface ChatState {
   typing: boolean
   done: boolean
   monto?: string
+  plazoDias?: number
   turnstileToken: string | null
 }
 
@@ -174,6 +175,7 @@ export function FloatingChatWidget() {
             open: true,
             teaser: 'dismissed',
             monto: detail?.monto ?? prev.monto,
+            plazoDias: detail?.plazoDias ?? prev.plazoDias,
           }
         }
 
@@ -182,6 +184,7 @@ export function FloatingChatWidget() {
           open: true,
           teaser: 'dismissed',
           monto: detail?.monto ?? prev.monto,
+          plazoDias: detail?.plazoDias ?? prev.plazoDias,
         }
       })
     }
@@ -270,7 +273,9 @@ export function FloatingChatWidget() {
     : [
         contact.waIntro,
         '',
-        ...(chat.monto ? [`Valor solicitado: ${chat.monto}`, ''] : []),
+        ...(chat.monto ? [`Valor solicitado: ${chat.monto}`] : []),
+        ...(chat.plazoDias ? [`Produto: ${chat.plazoDias} dias`] : []),
+        ...(chat.monto || chat.plazoDias ? [''] : []),
         ...chat.questions.map((q) => `${q.label}: ${chat.answers[q.id] ?? ''}`),
       ].join('\n')
   const waHref = `https://wa.me/${contact.waNumber}?text=${encodeURIComponent(waText)}`
@@ -343,6 +348,12 @@ export function FloatingChatWidget() {
                       <li className="flex flex-col gap-0.5 py-2 border-b border-neutral-100">
                         <span className="text-[11.5px] text-neutral-400">Valor solicitado</span>
                         <span className="text-brand-900 font-medium">{chat.monto}</span>
+                      </li>
+                    )}
+                    {chat.plazoDias && (
+                      <li className="flex flex-col gap-0.5 py-2 border-b border-neutral-100">
+                        <span className="text-[11.5px] text-neutral-400">Produto</span>
+                        <span className="text-brand-900 font-medium">{chat.plazoDias} dias</span>
                       </li>
                     )}
                     {chat.questions.map((q) => (
