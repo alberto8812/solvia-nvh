@@ -10,7 +10,7 @@ import { Container } from "@/components/ui";
 const NAV_LINKS = [
   { label: "Servicios", href: "/#servicios" },
   { label: "Cómo funciona", href: "/#como-funciona" },
-  { label: "Montos", href: "/#montos" },
+  { label: "Montos", href: "/#simulador" },
   { label: "Nosotros", href: "/#nosotros" },
   { label: "Trabalhe conosco", href: "/careers" },
 ] as const;
