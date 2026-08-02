@@ -1,22 +1,17 @@
 [
   {
-    "t": "História de um cliente",
-    "poster": "/videos/historia-cliente-poster.jpg",
-    "url": "/videos/historia-cliente.mp4"
+    "t": "Depoimento da Solvia",
+    "poster": "/videos/solvia-short-1-poster.jpg",
+    "url": "/videos/solvia-short-1.mp4"
   },
   {
-    "t": "A Solvia em ação",
-    "poster": "/videos/solvia-reel-2-poster.jpg",
-    "url": "/videos/solvia-reel-2.mp4"
+    "t": "Conheça a Solvia: o impulso de que sua empresa precisa",
+    "poster": "/videos/solvia-short-2-poster.jpg",
+    "url": "/videos/solvia-short-2.mp4"
   },
   {
-    "t": "Assim trabalhamos na Solvia",
-    "poster": "/videos/solvia-reel-4-poster.jpg",
-    "url": "/videos/solvia-reel-4.mp4"
-  },
-  {
-    "t": "Seu crédito, passo a passo",
-    "poster": "/videos/solvia-reel-5-poster.jpg",
-    "url": "/videos/solvia-reel-5.mp4"
+    "t": "Você precisa de capital para o seu negócio?",
+    "poster": "/videos/solvia-short-3-poster.jpg",
+    "url": "/videos/solvia-short-3.mp4"
   }
 ]
