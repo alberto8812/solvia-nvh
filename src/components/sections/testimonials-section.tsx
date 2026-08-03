@@ -8,6 +8,7 @@ import type { Testimonial } from '@/types/content.types'
 const VP = { once: true, amount: 0.2 } as const
 const CARD_WIDTH = 340
 const CARD_GAP = 20
+const QUOTE_TRUNCATE_LENGTH = 200
 
 const cardFade = {
   hidden: { opacity: 0, y: 10 },
@@ -126,7 +127,7 @@ export function TestimonialsSection() {
               </div>
 
               <p
-                className="font-serif text-brand-900 flex-1 line-clamp-5"
+                className="font-serif text-brand-900 flex-1"
                 style={{
                   fontSize: '17px',
                   lineHeight: 1.55,
@@ -134,10 +135,12 @@ export function TestimonialsSection() {
                   textWrap: 'pretty',
                 }}
               >
-                {t.q}
+                {t.q.length > QUOTE_TRUNCATE_LENGTH
+                  ? `${t.q.slice(0, QUOTE_TRUNCATE_LENGTH).trimEnd()}…`
+                  : t.q}
               </p>
 
-              {t.q.length > 260 && (
+              {t.q.length > QUOTE_TRUNCATE_LENGTH && (
                 <button
                   type="button"
                   onClick={() => setSelected(t)}
