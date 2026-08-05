@@ -8,7 +8,7 @@ interface BadgeProps {
 
 const TONE_CLASSES: Record<Required<BadgeProps>['tone'], string> = {
   brand: 'text-brand-700 bg-brand-100',
-  success: 'text-status-green bg-status-green/10',
+  success: 'text-status-green bg-status-green-100',
 }
 
 export function Badge({ children, className = '', tone = 'brand' }: BadgeProps) {
