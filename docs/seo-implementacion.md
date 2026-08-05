@@ -12,13 +12,13 @@ Guía completa de lo que ya está implementado en el proyecto, lo que queda pend
 |---|---|---|
 | `<title>` optimizado | Es el texto azul del resultado de Google. Incluye marca + propuesta de valor + keyword ("créditos rápidos"). | ✅ Listo |
 | `<meta name="description">` | El texto gris debajo del título en Google. No afecta ranking directamente, pero define si el usuario hace clic o no (CTR). | ✅ Listo |
-| `<link rel="canonical">` | Le dice a Google cuál es la URL "oficial" de la página. Evita contenido duplicado (www vs no-www, http vs https). | ⚠️ Placeholder `TUDOMINIO.com` |
+| `<link rel="canonical">` | Le dice a Google cuál es la URL "oficial" de la página. Evita contenido duplicado (www vs no-www, http vs https). | ✅ Listo — `solviagroup.com.br` |
 | `<meta name="robots" content="index, follow">` | Autoriza explícitamente a Google a indexar la página y seguir sus enlaces. | ✅ Listo |
-| `<meta name="theme-color">` | Colorea la barra del navegador móvil con el azul de marca (`#0B3F7C`). No es SEO puro, pero mejora la percepción de calidad. | ✅ Listo |
-| Open Graph (`og:*`) | Controla cómo se ve el link cuando se comparte por **WhatsApp**, Facebook o LinkedIn: título, descripción e imagen. Para Fondi (cuyo canal principal es WhatsApp) es crítico. | ⚠️ Placeholder de dominio + imagen provisoria |
-| Twitter Cards | Lo mismo pero para X/Twitter. | ⚠️ Placeholder |
-| JSON-LD `FinancialService` | Datos estructurados que le dicen a Google exactamente QUÉ es Fondi: servicio financiero, teléfono, email, idioma, zona de servicio (EE.UU.). Habilita resultados enriquecidos (knowledge panel, teléfono clicable en resultados). | ⚠️ Placeholder de dominio |
-| `lang="es"` | Antes decía `es-AR` (español de Argentina), pero el público objetivo es hispanohablante en EE.UU. (teléfono +1, email `.us`). Se cambió a `es` genérico. | ✅ Listo |
+| `<meta name="theme-color">` | Colorea la barra del navegador móvil con el azul de marca (`#00365F`). No es SEO puro, pero mejora la percepción de calidad. | ✅ Listo |
+| Open Graph (`og:*`) | Controla cómo se ve el link cuando se comparte por **WhatsApp**, Facebook o LinkedIn: título, descripción e imagen. Para Solvia (cuyo canal principal es WhatsApp) es crítico. | ⚠️ Dominio listo, falta imagen dedicada (ver Paso 2) |
+| Twitter Cards | Lo mismo pero para X/Twitter. | ✅ Listo — `solviagroup.com.br` |
+| JSON-LD `FinancialService` | Datos estructurados que le dicen a Google exactamente QUÉ es Solvia: servicio financiero, teléfono, email, idioma, zona de servicio (Brasil). Habilita resultados enriquecidos (knowledge panel, teléfono clicable en resultados). `sameAs` ya incluye Instagram y Facebook. | ✅ Listo |
+| `lang="pt-BR"` | Público objetivo es Brasil. | ✅ Listo |
 
 **Nota sobre `<meta name="keywords">`**: NO se agregó a propósito. Google la ignora desde 2009 — solo agrega ruido.
 
@@ -49,19 +49,11 @@ Archivos afectados:
 
 > Dato: el email de contacto ya es `info@fondi.us` — si el dominio final es `fondi.us`, todo queda consistente.
 
-### Paso 2 — Crear la imagen Open Graph (og-image)
+### Paso 2 — Imagen Open Graph (og-image) ✅ Listo
 
-Hoy el `og:image` apunta provisoriamente a `/images/logo-icon.png`. Eso funciona, pero se ve pobre al compartir. Lo correcto:
+`public/og-image.png` (1200×630) ya existe con logo, fondo azul de marca y el mensaje principal. `index.html` ya referencia `https://solviagroup.com.br/og-image.png` en `og:image` y `twitter:image`, con `og:image:width`/`og:image:height` declarados.
 
-1. Crear una imagen **1200 × 630 px** en PNG o JPG con: logo de Fondi, fondo azul de marca, y el mensaje principal ("Créditos en menos de 24 horas").
-2. Guardarla como `public/og-image.png`.
-3. Actualizar en `index.html` las dos referencias de imagen:
-   ```html
-   <meta property="og:image" content="https://fondi.us/og-image.png" />
-   <meta name="twitter:image" content="https://fondi.us/og-image.png" />
-   ```
-   Y el campo `"image"` del JSON-LD.
-4. Verificar cómo se ve con estas herramientas:
+Pendiente solo verificar que el deploy incluya el archivo y correr:
    - WhatsApp: mandarse el link a uno mismo
    - Facebook: https://developers.facebook.com/tools/debug/
    - LinkedIn: https://www.linkedin.com/post-inspector/
