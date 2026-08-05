@@ -8,6 +8,10 @@
       "region": "Paraná"
     },
     {
+      "city": "Paranaguá",
+      "region": "Paraná"
+    },
+    {
       "city": "Limeira",
       "region": "São Paulo"
     },
@@ -22,6 +26,10 @@
     {
       "city": "Piracicaba",
       "region": "São Paulo"
+    },
+    {
+      "city": "Joinville",
+      "region": "Santa Catarina"
     }
   ],
   "requirements": [

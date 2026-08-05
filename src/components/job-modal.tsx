@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { contact } from '@/data'
 import { Badge, Eyebrow, IconRow } from '@/components/ui'
-import { formatDate } from '@/lib/format'
 import type { JobOpening } from '@/types/content.types'
 
 interface JobModalProps {
@@ -51,7 +50,13 @@ export function JobModal({ job, onClose }: JobModalProps) {
             >
               {rendered.title}
             </h2>
-            <Badge>{rendered.modality}</Badge>
+            <div className="flex flex-col items-end gap-1.5 shrink-0">
+              <Badge>{rendered.modality}</Badge>
+              <Badge tone="success">
+                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-status-green" />
+                Ativo
+              </Badge>
+            </div>
           </div>
           <button
             type="button"
@@ -70,10 +75,6 @@ export function JobModal({ job, onClose }: JobModalProps) {
               otherwise let this grow past the parent and defeat overflow-y-auto. */}
           <div className="overflow-y-auto flex-1 min-h-0 flex flex-col p-6 pt-4 md:p-8 md:pt-4">
             <IconRow icon="home">{rendered.location}</IconRow>
-
-            <Eyebrow size="sm" className="mt-1">
-              Publicado el {formatDate(rendered.publishedAt, 'long')}
-            </Eyebrow>
 
             <p className="text-[15px] leading-[1.6] text-neutral-600 mt-5" style={{ textWrap: 'pretty' }}>
               {rendered.description}

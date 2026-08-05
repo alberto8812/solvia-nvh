@@ -46,9 +46,9 @@ export function FaqSection() {
           viewport={VP}
           className="lg:sticky lg:top-28"
         >
-          <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400">
+          {/* <div className="font-mono text-xs tracking-[.14em] uppercase text-neutral-400">
             Perguntas frequentes
-          </div>
+          </div> */}
           <h2
             className="font-sans font-semibold mt-[14px] text-brand-900"
             style={{
@@ -58,8 +58,8 @@ export function FaqSection() {
               textWrap: "balance",
             }}
           >
-            O que mais nos{" "}
-            <span className="font-serif italic font-medium">perguntam.</span>
+            Perguntas frequentes{" "}
+            {/* <span className="font-serif italic font-medium">perguntam.</span> */}
           </h2>
           <div
             className="mt-8 pt-6 border-t border-neutral-200 hidden lg:block"

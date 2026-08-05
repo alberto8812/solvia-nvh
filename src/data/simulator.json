@@ -1,16 +1,16 @@
 {
-  "interestRate": 1.28,
-  "plazoDias": 16,
-  "montoMin": 400,
+  "interestRate": 1.20,
+  "plazoDias": 15,
+  "montoMin": 500,
   "montoMax": 5000,
   "montoStep": 100,
   "montoDefault": 1000,
   "quickAmounts": [
-    400,
+    500,
     1000,
     2500,
     5000
   ],
-  "rangeSubtext": "Escolha o valor que você precisa, de R$400 a R$5.000, e pague em parcelas diárias durante 16 dias.",
+  "rangeSubtext": "Escolha o valor que você precisa, de R$500 a R$5.000, e pague em parcelas diárias durante 15 dias.",
   "waNumber": "15558793836"
 }

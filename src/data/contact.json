@@ -13,13 +13,13 @@
   "teaser": "Está buscando um crédito rápido? 💬",
   "questions": [
     {
-      "id": "nombre",
-      "label": "Seu nome",
+      "id": "comercio",
+      "label": "Qual tipo de comercio tem?",
       "type": "text"
     },
     {
       "id": "ciudad",
-      "label": "Em qual cidade e estado você mora?",
+      "label": "Em qual bairro e cidade fica o seu comercio?",
       "type": "text"
     },
     {
@@ -28,13 +28,8 @@
       "type": "text"
     },
     {
-      "id": "trabajoEstable",
-      "label": "Você tem um comércio em funcionamento?",
-      "type": "boolean"
-    },
-    {
-      "id": "trabajo",
-      "label": "Qual é o seu ramo de atividade?",
+      "id": "nombre",
+      "label": "Qual é seu nome",
       "type": "text"
     }
   ],

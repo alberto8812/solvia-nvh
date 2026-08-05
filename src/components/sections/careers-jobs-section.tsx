@@ -4,7 +4,6 @@ import { jobs } from '@/data'
 import { Icon, Button, Badge, Eyebrow, cardClassName, cardStyle } from '@/components/ui'
 import { fadeUp, staggerContainer, staggerItem } from '@/components/motion'
 import { openSolviaChat } from '@/lib/chat-bridge'
-import { formatDate } from '@/lib/format'
 import { JobModal } from '@/components/job-modal'
 import type { JobOpening } from '@/types/content.types'
 
@@ -71,20 +70,20 @@ export function CareersJobsSection() {
                     >
                       {job.title}
                     </h3>
-                    <Badge>{job.modality}</Badge>
+                    {/* Status earns its own badge, not a quiet inline dot —
+                        it's the one fact that answers "can I still apply?" */}
+                    <div className="flex flex-col items-end gap-1.5 shrink-0">
+                      <Badge>{job.modality}</Badge>
+                      <Badge tone="success">
+                        <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-status-green" />
+                        Ativo
+                      </Badge>
+                    </div>
                   </div>
 
-                  {/* Meta demoted to one quiet line — location is the only
-                      fact that varies per card; the publish date is
-                      lower-priority still, so it rides along in the same
-                      tier instead of claiming its own row. */}
                   <div className="flex items-center gap-1.5 mt-2.5 text-[13px] text-neutral-500">
                     <Icon name="map-pin" size={14} />
                     <span>{job.location}</span>
-                    <span aria-hidden className="text-neutral-300">
-                      ·
-                    </span>
-                    <span>Publicado em {formatDate(job.publishedAt)}</span>
                   </div>
 
                   {/* Salary is the one fact that actually sells a

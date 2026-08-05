@@ -9,24 +9,24 @@
   "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=70",
   "values": [
     {
-      "icon": "shield",
-      "title": "Honestidade",
-      "text": "Comunicação clara e transparente em cada etapa do processo."
-    },
-    {
       "icon": "handshake",
       "title": "Confiança",
-      "text": "Seus dados e seu dinheiro estão protegidos em cada operação."
+      "text": "Nossos processos são seguros. Suas informações estão protegidas. Cuidamos de construir relações de confiança com nossos clientes."
     },
     {
       "icon": "badge",
       "title": "Responsabilidade",
-      "text": "Assumimos com seriedade o compromisso de oferecer o melhor atendimento."
+      "text": "Assumimos com seriedade e dedicação todo o processo de crédito. Garantimos de forma responsável não apenas a concessão, mas também a cobrança"
     },
     {
       "icon": "users",
       "title": "Inclusão",
-      "text": "Produtos ajustados à necessidade real de cada cliente."
+      "text": "Oferecemos produtos acessíveis e ajustados à necessidade de cada cliente. Criamos oportunidades financeiras para comerciantes."
+    },
+    {
+      "icon": "shield",
+      "title": "Honestidade",
+      "text": "Mantemos uma comunicação clara e transparente em cada etapa do processo, garantindo que nossos clientes recebam sempre informações corretas e no momento certo."
     }
   ]
 }

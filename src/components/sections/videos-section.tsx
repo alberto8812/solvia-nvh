@@ -17,57 +17,55 @@ export function VideosSection() {
       className="bg-brand-50 border-t border-neutral-200 py-14 md:py-[76px]"
     >
       <Container>
-      {/* Header */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={VP}
-      >
-        <div className="font-mono text-xs tracking-[.14em] uppercase text-brand-600">
-          Experiências em vídeo
-        </div>
-        <h2
-          className="font-sans font-semibold mt-[14px] text-brand-900"
-          style={{
-            fontSize: "clamp(26px, 6vw, 34px)",
-            letterSpacing: "-0.02em",
-            lineHeight: 1.12,
-            maxWidth: "560px",
-            textWrap: "balance",
-            marginBottom: "10px",
-          }}
+        {/* Header */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VP}
         >
-          Nossos clientes contam{" "}
-          <span className="font-serif italic font-medium">
-            melhor do que nós.
-          </span>
-        </h2>
-        <p className="text-[15px] m-0 mb-10 text-neutral-500">
-          Passe o cursor para ver uma prévia — clique para assistir completo.
-        </p>
-      </motion.div>
+          <div className="font-mono text-xs tracking-[.14em] uppercase text-brand-600">
+            Experiências em vídeo
+          </div>
+          <h2
+            className="font-sans font-semibold mt-[14px] text-brand-900"
+            style={{
+              fontSize: "clamp(26px, 6vw, 34px)",
+              letterSpacing: "-0.02em",
+              lineHeight: 1.12,
+              maxWidth: "560px",
+              textWrap: "balance",
+              marginBottom: "10px",
+            }}
+          >
+            Conheça-nos{" "}
+            <span className="font-serif italic font-medium">melhor.</span>
+          </h2>
+          <p className="text-[15px] m-0 mb-10 text-neutral-500">
+            Passe o cursor para ver uma prévia — clique para assistir completo.
+          </p>
+        </motion.div>
 
-      {/* Cards — stagger entrance, CSS hover preserved */}
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={VP}
-      >
-        {videos.map((v, i) => (
-          <motion.div key={v.t} variants={staggerItem}>
-            <VideoCard
-              video={v}
-              isActive={activeIdx === i}
-              onEnter={() => setActiveIdx(i)}
-              onLeave={() => setActiveIdx(null)}
-              onOpen={() => setOpenVideo(v)}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+        {/* Cards — stagger entrance, CSS hover preserved */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VP}
+        >
+          {videos.map((v, i) => (
+            <motion.div key={v.t} variants={staggerItem}>
+              <VideoCard
+                video={v}
+                isActive={activeIdx === i}
+                onEnter={() => setActiveIdx(i)}
+                onLeave={() => setActiveIdx(null)}
+                onOpen={() => setOpenVideo(v)}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
       </Container>
 
       <VideoModal video={openVideo} onClose={() => setOpenVideo(null)} />
