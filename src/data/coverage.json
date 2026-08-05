@@ -12,6 +12,10 @@
       "region": "Paraná"
     },
     {
+      "city": "Joinville",
+      "region": "Santa Catarina"
+    },
+    {
       "city": "Limeira",
       "region": "São Paulo"
     },
@@ -26,10 +30,6 @@
     {
       "city": "Piracicaba",
       "region": "São Paulo"
-    },
-    {
-      "city": "Joinville",
-      "region": "Santa Catarina"
     }
   ],
   "requirements": [
