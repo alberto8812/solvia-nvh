@@ -29,14 +29,14 @@
     },
     {
       "id": "nombre",
-      "label": "Qual é seu nome",
+      "label": "Qual é seu nome?",
       "type": "text"
     }
   ],
   "email": "contato@solviagroup.com.br",
   "social": {
     "instagram": "https://www.instagram.com/solvia_brasil/",
-    "facebook": "https://www.facebook.com/solviabrasil"
+    "facebook": "https://www.facebook.com/share/1JKp26asF1/?mibextid=wwXIfr"
   },
   "cnpj": "62.349.967/0001-30",
   "bcbNotice": "Instituição regulamentada pelo Banco Central do Brasil (BCB)",

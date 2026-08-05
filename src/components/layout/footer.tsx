@@ -37,24 +37,34 @@ export function Footer() {
               Estamos disponíveis para te apoiar quando você mais precisar. Te
               convidamos a nos seguir nas redes sociais:
             </p>
-            <div className="flex gap-3 mt-5">
+            <div className="flex flex-col gap-3 mt-5">
               <a
                 href={contact.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram @solvia_brasil"
-                className="flex items-center justify-center w-11 h-11 rounded-full border border-brand-300/30 text-brand-200 transition-colors hover:bg-on-brand hover:border-on-brand hover:text-brand-900"
+                className="group flex items-center gap-3 w-fit"
               >
-                <Icon name="instagram" size={22} />
+                <span className="flex items-center justify-center w-11 h-11 shrink-0 rounded-full border border-brand-300/30 text-brand-200 transition-colors group-hover:bg-on-brand group-hover:border-on-brand group-hover:text-brand-900">
+                  <Icon name="instagram" size={22} />
+                </span>
+                <span className="text-[15px] text-brand-200 transition-colors group-hover:text-on-brand">
+                  @solvia_brasil
+                </span>
               </a>
               <a
                 href={contact.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook Solvia Brasil"
-                className="flex items-center justify-center w-11 h-11 rounded-full border border-brand-300/30 text-brand-200 transition-colors hover:bg-on-brand hover:border-on-brand hover:text-brand-900"
+                className="group flex items-center gap-3 w-fit"
               >
-                <Icon name="facebook" size={22} />
+                <span className="flex items-center justify-center w-11 h-11 shrink-0 rounded-full border border-brand-300/30 text-brand-200 transition-colors group-hover:bg-on-brand group-hover:border-on-brand group-hover:text-brand-900">
+                  <Icon name="facebook" size={22} />
+                </span>
+                <span className="text-[15px] text-brand-200 transition-colors group-hover:text-on-brand">
+                  Facebook Solvia
+                </span>
               </a>
             </div>
           </div>
