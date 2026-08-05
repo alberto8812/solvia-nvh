@@ -63,7 +63,7 @@ export function Footer() {
                   <Icon name="facebook" size={22} />
                 </span>
                 <span className="text-[15px] text-brand-200 transition-colors group-hover:text-on-brand">
-                  Facebook Solvia
+                  Solvia Brasil
                 </span>
               </a>
             </div>
