@@ -149,6 +149,7 @@ interface VideoModalProps {
 
 function VideoModal({ video, onClose }: VideoModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [rendered, setRendered] = useState<VideoItem | null>(null);
 
   useEffect(() => {
@@ -167,7 +168,14 @@ function VideoModal({ video, onClose }: VideoModalProps) {
       ref={dialogRef}
       className="video-modal"
       aria-label={rendered?.t}
-      onClose={onClose}
+      onClose={() => {
+        // The dialog can visually linger for the fade-out transition, but
+        // the "close" event fires immediately for every close path (button,
+        // Escape, backdrop) — pause here so audio/video never keeps running
+        // behind a hidden modal.
+        videoRef.current?.pause();
+        onClose();
+      }}
       onCancel={onClose}
       onClick={(e) => {
         if (e.target === dialogRef.current) onClose();
@@ -181,6 +189,7 @@ function VideoModal({ video, onClose }: VideoModalProps) {
       {rendered && (
         <div className="relative">
           <video
+            ref={videoRef}
             key={rendered.url}
             src={rendered.url}
             poster={rendered.poster}
