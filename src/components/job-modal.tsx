@@ -1,27 +1,27 @@
-import { useEffect, useRef, useState } from 'react'
-import { contact } from '@/data'
-import { Badge, Eyebrow, IconRow } from '@/components/ui'
-import type { JobOpening } from '@/types/content.types'
+import { useEffect, useRef, useState } from "react";
+import { contact } from "@/data";
+import { Badge, Eyebrow, IconRow } from "@/components/ui";
+import type { JobOpening } from "@/types/content.types";
 
 interface JobModalProps {
-  job: JobOpening | null
-  onClose: () => void
+  job: JobOpening | null;
+  onClose: () => void;
 }
 
 export function JobModal({ job, onClose }: JobModalProps) {
-  const dialogRef = useRef<HTMLDialogElement>(null)
-  const [rendered, setRendered] = useState<JobOpening | null>(null)
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const [rendered, setRendered] = useState<JobOpening | null>(null);
 
   useEffect(() => {
-    const dialog = dialogRef.current
-    if (!dialog) return
+    const dialog = dialogRef.current;
+    if (!dialog) return;
     if (job) {
-      setRendered(job)
-      dialog.showModal()
+      setRendered(job);
+      dialog.showModal();
     } else if (dialog.open) {
-      dialog.close()
+      dialog.close();
     }
-  }, [job])
+  }, [job]);
 
   return (
     <dialog
@@ -31,29 +31,35 @@ export function JobModal({ job, onClose }: JobModalProps) {
       onClose={onClose}
       onCancel={onClose}
       onClick={(e) => {
-        if (e.target === dialogRef.current) onClose()
+        if (e.target === dialogRef.current) onClose();
       }}
       onTransitionEnd={(e) => {
         if (e.target === dialogRef.current && !dialogRef.current?.open) {
-          setRendered(null)
+          setRendered(null);
         }
       }}
     >
       {rendered && (
-        <div className="relative bg-neutral-50 flex flex-col h-full" style={{ borderRadius: '14px' }}>
+        <div
+          className="relative bg-neutral-50 flex flex-col h-full"
+          style={{ borderRadius: "14px" }}
+        >
           {/* Header — stays put; the body scrolls independently, so the close
               button and title are always reachable regardless of description length. */}
           <div className="flex items-start justify-between gap-3 p-6 pb-0 pr-14 md:p-8 md:pb-0 md:pr-16 shrink-0">
             <h2
               className="font-sans font-semibold text-brand-900"
-              style={{ fontSize: '21px', letterSpacing: '-0.01em', margin: 0 }}
+              style={{ fontSize: "21px", letterSpacing: "-0.01em", margin: 0 }}
             >
               {rendered.title}
             </h2>
             <div className="flex flex-col items-end gap-1.5 shrink-0">
               <Badge>{rendered.modality}</Badge>
               <Badge tone="success">
-                <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-status-green" />
+                <span
+                  aria-hidden
+                  className="h-1.5 w-1.5 rounded-full bg-status-green"
+                />
                 Ativo
               </Badge>
             </div>
@@ -65,7 +71,15 @@ export function JobModal({ job, onClose }: JobModalProps) {
             aria-label="Cerrar"
             className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-neutral-500 transition-colors duration-200 hover:bg-neutral-100 hover:text-brand-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            >
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </button>
@@ -76,7 +90,10 @@ export function JobModal({ job, onClose }: JobModalProps) {
           <div className="overflow-y-auto flex-1 min-h-0 flex flex-col p-6 pt-4 md:p-8 md:pt-4">
             <IconRow icon="home">{rendered.location}</IconRow>
 
-            <p className="text-[15px] leading-[1.6] text-neutral-600 mt-5" style={{ textWrap: 'pretty' }}>
+            <p
+              className="text-[15px] leading-[1.6] text-neutral-600 mt-5"
+              style={{ textWrap: "pretty" }}
+            >
               {rendered.description}
             </p>
 
@@ -85,7 +102,9 @@ export function JobModal({ job, onClose }: JobModalProps) {
                 <Eyebrow size="sm" className="mb-1">
                   Salario
                 </Eyebrow>
-                <div className="text-[15px] font-medium text-brand-900">{rendered.salary}</div>
+                <div className="text-[15px] font-medium text-brand-900">
+                  {rendered.salary}
+                </div>
               </div>
             )}
 
@@ -94,7 +113,7 @@ export function JobModal({ job, onClose }: JobModalProps) {
                 space, regardless of description length. */}
             <div className="mt-auto pt-5 border-t border-neutral-200">
               <Eyebrow size="sm" className="mb-3">
-                Contacto
+                Contato
               </Eyebrow>
               <div className="flex flex-col gap-2.5">
                 <IconRow
@@ -122,5 +141,5 @@ export function JobModal({ job, onClose }: JobModalProps) {
         </div>
       )}
     </dialog>
-  )
+  );
 }
